@@ -16,6 +16,8 @@ static void init_structs()
     battery_conf_init(&bat_conf, BAT_TYPE_FLOODED, 6, 100);
     charger.init_terminal(&bat_conf);
     charger.state = CHG_STATE_IDLE;
+    charger.time_last_ctrl_msg = CHARGER_TIME_NEVER;
+    charger.target_current_control = 0;
     charger.bat_temperature = 25;
     bat_terminal.bus->voltage = 14.0;
     bat_terminal.bus->voltage_filtered = 14.0;
