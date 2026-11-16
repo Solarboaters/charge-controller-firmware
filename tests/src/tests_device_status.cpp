@@ -91,6 +91,8 @@ void dev_stat_new_load_current_max()
 
 void dev_stat_solar_power_max()
 {
+    dev_stat.solar_power_max_day = 0;
+    dev_stat.solar_power_max_total = 0;
     solar_terminal.power = -50;
     dev_stat.update_min_max_values();
     TEST_ASSERT_EQUAL(50, dev_stat.solar_power_max_day);
@@ -99,6 +101,8 @@ void dev_stat_solar_power_max()
 
 void dev_stat_load_power_max()
 {
+    dev_stat.load_power_max_day = 0;
+    dev_stat.load_power_max_total = 0;
     load.power = 50;
     dev_stat.update_min_max_values();
     TEST_ASSERT_EQUAL(50, dev_stat.load_power_max_day);
